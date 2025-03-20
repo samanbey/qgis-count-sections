@@ -21,7 +21,7 @@ fields.append(QgsField("_count",QVariant.Int))
 feats = []
 for i,f in enumerate(l.getFeatures()):
     # DEBUG: copy the first 100 lines only
-    #if i>=100: 
+    #if i>=200: 
     #    break
     f2=QgsFeature(fields)
     f2.setGeometry(f.geometry())
@@ -59,11 +59,9 @@ while i<len(feats):
             feats[j].setGeometry(f2g)
             g1=f1g
         j+=1
-        n+=1
     i+=1
     
 print('After: ',len(feats),' lines')
-print(n)
 print('Deleted:',nd)
 lines = QgsVectorLayer("MultiLineString","aggregated line sections","memory")
 lines.startEditing()
